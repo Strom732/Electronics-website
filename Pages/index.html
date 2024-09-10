@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <div class="hero-slider">
+      <div class="slide slide1">
+        <div class="overlay"></div>
+        <div class="content">
+          <div>
+          <h1>Welcome to Our Website</h1>
+          <p>This is a description of our website.</p>
+          </div>
+          <a href="#" class="btn">Learn More</a>
+                 
+        </div>
+      </div>
+      <div class="slide slide2">
+        <div class="overlay"></div>
+        <div class="content">
+          <div>
+          <h1>Discover Our Services</h1>
+          <p>Explore our wide range of services.</p>
+          </div>
+          <a href="#" class="btn">View Services</a>
+        </div>
+      </div>
+    </div>
+  <script src="{% static 'js/script.js' %}"></script>
+
+
+
+
+  <div class="space_block"></div>
+
+
+
+  <section class="featured-services">
+    <div class="container">
+        <h2>Our Expert Repair Services</h2>
+        <p class="subheading">From sensors to complete PCB assemblies, we fix it all with precision and care.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">
+                    <img src="path_to_pcb_icon.png" alt="PCB Repair">
+                </div>
+                <h3>PCB Repair</h3>
+                <p>Fixing damaged PCBs with expert precision.</p>
+                <a href="#" class="btn">Request Service</a>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">
+                    <img src="path_to_sensor_icon.png" alt="Sensor Replacement">
+                </div>
+                <h3>Sensor Replacement</h3>
+                <p>Accurate sensor replacements for all types.</p>
+                <a href="#" class="btn">Request Service</a>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">
+                    <img src="path_to_actuator_icon.png" alt="Actuator Calibration">
+                </div>
+                <h3>Actuator Calibration</h3>
+                <p>Precision tuning of actuators for optimal performance.</p>
+                <a href="#" class="btn">Request Service</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="space_block"></div>
+
+
+
+<section class="product-categories">
+    <div class="container">
+        <h2>Shop by Category</h2>
+        <p class="subheading">Find the components you need from our wide selection.</p>
+        
+        <div class="categories-grid">
+          {% for category in categories %}
+          <div class="category-item">
+              <img src="{{ category.image.url }}" alt="{{ category.name }}" class="category-icon">
+              <h3>{{ category.name }}</h3>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+  
+
+
+
+<div class="space_block"></div>
+<div class="space_block"></div>
+
+  
+  
+  <!--offer carousel-->
+  <div class="carousel-container">
+    <h1>Featured Products</h1>
+    <button class="carousel-btn left" onclick="moveCarousel(-1)">&#10094;</button>
+    <div class="carousel">
+        {%for products in Products %}
+        <div class="card">
+            <img src="{{products.img.url}}" alt="">
+            <div class="card-body">
+                <h3 class="card-title">{{products.name}}</h3>
+                <div class="price-container">
+                <p class="currency">Rs: </p>  
+                <p class="card-price">{{products.price}}</p>
+                <p class="card-original-price">{{products.base_price}}</p>
+                </div>
+                <form action="{% url 'cart:add_to_cart' products.id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+              </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-btn right" onclick="moveCarousel(1)">&#10095;</button>
+</div>
+<script src="{% static 'js/offercard.js' %}"></script>
+
+
+
+<div class="space_block"></div>
+<div class="space_block"></div>
+
+
+
+
+<section class="special-offers">
+  <div class="container">
+      <h2>Special Offers</h2>
+      <p class="subheading">Don’t miss out on these limited-time offers!</p>
+      
+      <div class="offers-grid">
+          <div class="offer-card">
+              <div class="offer-image">
+                  <img src="path_to_offer_image1.jpg" alt="50% Off Sensors">
+              </div>
+              <div class="offer-details">
+                  <h3>50% Off Sensors</h3>
+                  <p>Get 50% off on all sensor products. Limited time offer!</p>
+                  <a href="#" class="btn">Shop Now</a>
+              </div>
+          </div>
+
+          <div class="offer-card">
+              <div class="offer-image">
+                  <img src="path_to_offer_image2.jpg" alt="Buy 1 Get 1 Free Actuators">
+              </div>
+              <div class="offer-details">
+                  <h3>Buy 1 Get 1 Free Actuators</h3>
+                  <p>Buy one actuator and get another one for free. Don’t miss this deal!</p>
+                  <a href="#" class="btn">View Deal</a>
+              </div>
+          </div>
+
+          <!-- Add more offers as needed -->
+      </div>
+  </div>
+</section>
+
+
+
+
+<div class="space_block"></div>
+<div class="space_block"></div>
+<div class="space_block"></div>
+
+
+
+
+<section class="why-choose-us">
+  <div class="container">
+      <h2>Why Choose Us?</h2>
+      <p class="subheading">Discover the benefits of working with us.</p>
+      
+      <div class="benefits-grid">
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="path_to_quality_icon.png" alt="Quality Assurance">
+              </div>
+              <h3>Quality Assurance</h3>
+              <p>We guarantee high-quality components and reliable repair services.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="path_to_support_icon.png" alt="24/7 Support">
+              </div>
+              <h3>24/7 Support</h3>
+              <p>Our support team is available around the clock to assist you.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="path_to_expertise_icon.png" alt="Expertise">
+              </div>
+              <h3>Expertise</h3>
+              <p>Our technicians are highly skilled and experienced in their field.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="path_to_technology_icon.png" alt="Advanced Technology">
+              </div>
+              <h3>Advanced Technology</h3>
+              <p>We use the latest technology to ensure optimal performance.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="path_to_satisfaction_icon.png" alt="Customer Satisfaction">
+              </div>
+              <h3>Customer Satisfaction</h3>
+              <p>Your satisfaction is our top priority, and we strive to exceed expectations.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="path_to_flexible_icon.png" alt="Flexible Solutions">
+              </div>
+              <h3>Flexible Solutions</h3>
+              <p>We offer customizable solutions to meet your specific needs.</p>
+          </div>
+      </div>
+      
+      <!-- Optional Call-to-Action -->
+      <a href="#" class="cta-button">Learn More</a>
+  </div>
+</section>
+
+
+{% endblock %}

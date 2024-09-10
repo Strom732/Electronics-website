@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+    <div class="space_block">
+
+    </div>
+    <header class="heading">
+    <h1>Your Shopping Cart</h1>
+    </header>
+    <div class="cart_table">
+    <table>
+        <thead class="cart-table-head">
+            <tr class="table-head-row">
+                <th class="product-remove"></th>
+                <th class="product-image">Product Image</th>
+                <th class="product-name">Name</th>
+                <th class="product-price">Price</th>
+                <th class="product-quantity">Quantity</th>
+                <th class="product-total">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr class="table-body-row">
+                <td class="product-remove"><a href="{% url 'cart:remove_all_from_cart' item.id %}"><i class="far fa-window-close">x</i></a></td>
+                <td class="product-image"><img src="{{ item.product.img.url}}" alt=""></td>
+                <td class="product-name">{{ item.product.name }}</td>
+                <td class="product-price">Rs {{ item.product.price }}</td>
+                <td class="product-quantity"><a href="{% url 'cart:remove_one_from_cart' item.id %}">-</a>{{ item.quantity }}<a href="{% url 'cart:add_one_to_cart' item.id %}">+</a></td>
+                <td class="product-total">Rs{{ item.total}}</td>
+            </tr>
+            {% empty %}
+                <p>Your cart is empty.</p>
+            {% endfor %}
+        </tbody>    
+    </table>
+    </div> 
+ 
+    <p>Total Price: Rs{{ total_price }}</p>
+    <div class="continue_shoping_btn"> 
+    <a href="{% url 'home' %}">Continue Shopping</a>
+    </div>
+
+
+{% endblock %}

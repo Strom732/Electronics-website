@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+
+    <div class="space_block"></div>
+    <div class="services_heading" >
+        <h1>Services we provide</h1>
+    </div>
+
+    <div class="form-container">
+        <h2>Service Request Form</h2>
+        <form method="post" action="{% url 'services' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="service_type">Service Type:</label>
+                <input type="text" id="service_type" name="service_type" class="form-control" placeholder="Service Type" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" placeholder="Describe your issue" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    
+
+{% endblock %}

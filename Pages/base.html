@@ -1,0 +1,77 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+</head>
+<body>
+  {% if messages %}
+  <div class="messages">
+      {% for message in messages %}
+          <div class="message {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+  </div>
+  {% endif %} 
+
+  {% include 'navbar.html' %}
+  {% block content %}
+
+
+  {% endblock %}
+
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-company">
+                <h2>National Electronic</h2>
+                <p>Your trusted source for electronic components and repair services. We combine quality, expertise, and support to meet your needs.</p>
+            </div>
+            
+            <div class="footer-nav">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'shop' %}">Shop</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><strong>Address:</strong>A-wing shop no.:3 Rooprajat Nagar CIDCO Tarapur Road Boisar 401501</p>
+                <p><strong>Phone:</strong> 02525-277211</p>
+                <p><strong>Email:</strong> <a href="mailto:info@nationalelectronics.com">info@nationalelectronics.com</a></p>
+            </div>
+            <Ul class="social-list">
+             <li><h3>Follow Us</h3></li>
+             <li><div class="footer-social">
+                <a href="#" class="social-icon"><img src="path_to_facebook_icon.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="path_to_twitter_icon.png" alt="Twitter"></a>
+                <a href="#" class="social-icon"><img src="path_to_linkedin_icon.png" alt="LinkedIn"></a>
+                <a href="#" class="social-icon"><img src="path_to_instagram_icon.png" alt="Instagram"></a>
+                </div></li>
+            </Ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 National Electronic. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </div>
+</footer>
+
+
+         
+
+
+</body>
+</html>
