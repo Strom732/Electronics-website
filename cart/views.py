@@ -22,9 +22,16 @@ def add_to_cart(request, product_id):
     
     # Add a success message
     messages.success(request, 'Item added to cart!')
+
+    referer = request.META.get('HTTP_REFERER', '')
+
+    if 'shop' in referer:
+        # If the referer contains 'shop', redirect to shop page
+        return redirect('shop')  # Replace with your shop page's URL name
+    else:
+        # Otherwise, redirect to home page
+        return redirect('home')  # Replace with your home page's URL name
     
-    # Redirect back to the home page
-    return redirect('home')
  
 def remove_one_from_cart(request, item_id):
     cart_item = get_object_or_404(CartItem, id=item_id)
