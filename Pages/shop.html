@@ -55,9 +55,12 @@
       <img src="{{ product.img.url }}" alt="{{ product.name }}">
       <h2>{{ product.name }}</h2>
       <p class="price">Rs{{ product.price }}</p>
-      <p class="card-original-price">{{products.base_price}}</p>
+      <p class="card-original-price">{{product.base_price}}</p>
       <p class="ratings">Rating: ★{{ product.rating|floatformat:1 }}</p>
-      <button class="add-to-cart-btn">Add to Cart</button>
+      <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+    </form>
       <div class="wishlist-icon">❤</div>
     </div>
     {% endfor %}

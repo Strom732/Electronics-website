@@ -131,6 +131,7 @@ body {
 }
 
 .product-card h2 {
+  height: 50px;
   font-size: 18px;
   margin-bottom: 10px;
   font-weight: 600;
