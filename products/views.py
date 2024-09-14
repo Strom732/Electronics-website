@@ -3,12 +3,16 @@ from .models import Product, Category
 from cart.models import CartItem
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
+from offer_banner.models import SpecialOffer
+
 
 def home(request):
     products = Product.objects.all()
     categories = Category.objects.all().order_by('name')
+    offers = SpecialOffer.objects.all()
 
     context = {
+        'offers': offers,
         'Products': products,  # Consider renaming this to 'products' for consistency
         'categories': categories
     }

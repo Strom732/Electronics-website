@@ -135,39 +135,28 @@
 
 
 
-
 <section class="special-offers">
   <div class="container">
-      <h2>Special Offers</h2>
-      <p class="subheading">Don’t miss out on these limited-time offers!</p>
-      
-      <div class="offers-grid">
-          <div class="offer-card">
-              <div class="offer-image">
-                  <img src="path_to_offer_image1.jpg" alt="50% Off Sensors">
-              </div>
-              <div class="offer-details">
-                  <h3>50% Off Sensors</h3>
-                  <p>Get 50% off on all sensor products. Limited time offer!</p>
-                  <a href="#" class="btn">Shop Now</a>
-              </div>
-          </div>
+    <h2>Special Offers</h2>
+    <p class="subheading">Don’t miss out on these limited-time offers!</p>
 
-          <div class="offer-card">
-              <div class="offer-image">
-                  <img src="path_to_offer_image2.jpg" alt="Buy 1 Get 1 Free Actuators">
-              </div>
-              <div class="offer-details">
-                  <h3>Buy 1 Get 1 Free Actuators</h3>
-                  <p>Buy one actuator and get another one for free. Don’t miss this deal!</p>
-                  <a href="#" class="btn">View Deal</a>
-              </div>
+    <div class="offers-grid">
+      {% for offer in offers %}
+        <div class="offer-card">
+          <div class="offer-image">
+            <img src="{{ offer.image.url }}" alt="{{ offer.title }}">
           </div>
-
-          <!-- Add more offers as needed -->
-      </div>
+          <div class="offer-details">
+            <h3>{{ offer.title }}</h3>
+            <p>{{ offer.description }}</p>
+            <a href="{{ offer.link }}" class="btn">Shop Now</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
+
 
 
 
