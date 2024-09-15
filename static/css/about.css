@@ -1,158 +1,319 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-
 .space_block{
     height: 10vh;
-} 
+}
 
+section  h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Hero Section */
 .hero {
-    background: url('hero-background.jpg') no-repeat center center/cover;
+    background: url('hero-bg.jpg') center/cover no-repeat;
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: white;
+    align-items: center;
     text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.hero .btn {
-    background: #ff6f61;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-section {
-    padding: 60px 20px;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.our-story, .mission-values, .the-team, .what-we-do, .why-choose-us, .testimonials {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.our-story p, .mission-values p, .the-team p, .what-we-do p, .why-choose-us p {
-    text-align: center;
+    font-size: 18px;
     margin-bottom: 20px;
 }
 
-.story-images img, .services-icons img, .usps img {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
-    display: block;
+.hero .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
-.values-list {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 0;
+.hero .btn:hover {
+    background-color: #c0392b;
 }
 
-.values-list li {
+/* Our Story Section */
+.our-story {
+    padding: 50px 100px;
+    background-color: white;
     text-align: center;
 }
 
-.the-team {
+.our-story h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.our-story p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.story-images {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.team-member {
-    max-width: 200px;
-    text-align: center;
-}
-
-.team-member img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+.story-images img {
+    width: 300px;
+    height: 200px;
     object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.story-images img:hover {
+    transform: scale(1.05);
+}
+
+/* Mission & Values Section */
+.mission-values {
+    padding: 50px 100px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.mission-values h2 {
+    font-size: 36px;
     margin-bottom: 10px;
 }
 
-.testimonials blockquote {
-    font-style: italic;
-    text-align: center;
-    margin: 20px auto;
+.mission-values p {
     max-width: 800px;
+    margin: 0 auto 30px;
 }
 
-.testimonials cite {
-    display: block;
-    margin-top: 10px;
+.mission-values h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-footer {
-    background: #333;
-    color: white;
-    padding: 40px 20px;
+.values-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.values-list li {
+    width: 200px;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.values-list li:hover {
+    transform: scale(1.05);
+}
+
+.values-list img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* The Team Section */
+.the-team {
+    padding: 50px 100px;
+    background-color: white;
     text-align: center;
 }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+.the-team h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
 }
 
-.footer-content p {
-    margin: 10px 0;
-}
-
-.social-media img {
-    width: 30px;
-    margin: 0 10px;
-}
-
-.newsletter {
-    margin: 20px 0;
-}
-
-.newsletter input {
-    padding: 10px;
+.team-member {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
     width: 200px;
-    border: none;
-    border-radius: 5px;
 }
 
-.newsletter button {
-    padding: 10px 20px;
-    background: #ff6f61;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-left: 10px;
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
 }
 
-.quick-links a {
+.team-member img:hover {
+    transform: scale(1.05);
+}
+
+.team-member h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* What We Do Section */
+.what-we-do {
+    padding: 50px 100px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.what-we-do h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.what-we-do p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.services-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.services-icons img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.services-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    padding: 50px 100px;
+    background-color: white;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.why-choose-us p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.usps {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.usps img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 100px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+blockquote {
+    font-size: 18px;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    color: #555;
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 50px;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    color: #ccc;
+}
+
+cite {
+    display: block;
+    margin-top: 15px;
+    font-style: normal;
+    color: #888;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #3498db;
     color: white;
     text-decoration: none;
-    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
-.quick-links a:hover {
-    text-decoration: underline;
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .our-story, .mission-values, .the-team, .what-we-do, .why-choose-us, .testimonials {
+        padding: 30px 20px;
+    }
+
+    .values-list {
+        flex-direction: column;
+    }
+
+    .services-icons {
+        flex-direction: column;
+    }
 }

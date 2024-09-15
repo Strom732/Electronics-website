@@ -656,7 +656,8 @@ featured services */
 .offer-details {
   position: absolute;
   bottom: 20px;
-  left: 20px;
+  left: 10%;
+  right: 10%;
   color: #fff;
   z-index: 1;
 }
